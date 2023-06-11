@@ -17,6 +17,7 @@ class PowerShellArtifactGenerator(Generator):
                  chain=None,
                  outfile=None,
                  delay=None,
+                 template: str=None,
                  transformer=None,
                  arch: str = None,
                  sgn: bool = False,
@@ -55,6 +56,7 @@ class PowerShellArtifactGenerator(Generator):
         self.writer = CodeWriter(
             file=file,
             modules=modules,
+            template=template,
             delay=delay,
             converter=self.transformer,
             language=Language.POWERSHELL,

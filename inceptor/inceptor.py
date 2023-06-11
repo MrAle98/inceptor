@@ -207,6 +207,8 @@ inceptor: A Windows-based PE Packing framework designed to help
     powershell_parser.add_argument(
         '-P0', '--process', required=False, type=str, default=False,
         help='Inject into a specific process (Image Name)')
+    powershell_parser.add_argument( '-T', '--template', required=False, type=str, default=None,
+        help='template path')
     actions = ["native", "dotnet", "powershell"]
 
     welcome()
@@ -322,6 +324,7 @@ inceptor: A Windows-based PE Packing framework designed to help
         generator = PowerShellArtifactGenerator(file=binary_abs_path,
                                                 chain=chain,
                                                 modules=modules,
+                                                template=args.template,
                                                 transformer=args.transformer,
                                                 delay=args.delay,
                                                 outfile=args.outfile,
